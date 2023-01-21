@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class AnswerScipt : MonoBehaviour
 {
     public Color startColor;
-    public bool isCorrect = false;
-    public bool selected = false;
+    public bool isCorrect;
+    public bool selected;
     public QuizManager quizManager;
     public float answerTimer = 1f;
     public AudioSource correctSound;
@@ -33,24 +33,24 @@ public class AnswerScipt : MonoBehaviour
             Debug.Log("Wrong Answer");
             wrongSound.Play();
         }
-        StartCoroutine(waitAndDeactivete());
+        StartCoroutine(waitAndDeactivate());
 
  }
-    public void resetColor(){
+    private void resetColor(){
             GetComponent<Image>().color = startColor;
             answerTimer = 1f;
             //selected = false;
         }
 
-    IEnumerator waitAndDeactivete(){
+    IEnumerator waitAndDeactivate(){
         while(answerTimer > 0){
             answerTimer -= Time.deltaTime;
             yield return null;
         }
-        if (isCorrect == true){
+        if (isCorrect){
             quizManager.correctAnswer();
         }
-        else if(isCorrect == false){
+        else if(!isCorrect){
             quizManager.wrongAnswer();
         }
         resetColor();

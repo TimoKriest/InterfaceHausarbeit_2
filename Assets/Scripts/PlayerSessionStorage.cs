@@ -22,17 +22,6 @@ public class PlayerSessionStorage : MonoBehaviour
         currentQuestion = 0;
         playerName = PlayerPrefs.GetString("playerName", "Player");
         UpdateScore();
-        AskQuestion();
-    }
-
-    public void AskQuestion()
-    {
-        if (currentQuestion >= questions.Length)
-        {
-            EndGame();
-            return;
-        }
-        // Code for displaying the question and receiving the answer goes here
     }
 
     public void CheckAnswer(string playerAnswer)
@@ -43,7 +32,6 @@ public class PlayerSessionStorage : MonoBehaviour
         }
         currentQuestion++;
         UpdateScore();
-        AskQuestion();
     }
 
     public void UpdateScore()
