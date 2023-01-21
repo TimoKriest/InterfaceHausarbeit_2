@@ -5,12 +5,10 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject menu;
     
-    private RandomQuizType _randomQuizType;
     private QuizManager _quizManager;
 
     private void Start()
     {
-        _randomQuizType = GetComponent<RandomQuizType>();
         _quizManager = FindObjectOfType<QuizManager>();
     }
 

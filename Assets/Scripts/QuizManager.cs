@@ -8,8 +8,8 @@ using UnityEngine.Serialization;
 public class QuizManager : MonoBehaviour
 {
     [SerializeField] private GameObject startMenu;
-    [SerializeField] private RandomQuizType _randomQuizType;
     [SerializeField] private GameObject[] gameMenues;
+    [SerializeField] private MultipleChoiceController _multipleChoiceController;
     
     public List<QuestionsAndAnswers> questionsAndAnswersList;
     public GameObject[] options;
@@ -70,7 +70,7 @@ public class QuizManager : MonoBehaviour
             options[i].GetComponent<AnswerScipt>().isCorrect = false;
             options[i].GetComponentInChildren<TextMeshProUGUI>().text = questionsAndAnswersList[currentQuestion].Answers[i];
 
-            if (questionsAndAnswersList[currentQuestion].CorrectAnswer == i + 1)
+            if (questionsAndAnswersList[currentQuestion].CorrectAnswer[i] == i + 1)
             {
                 options[i].GetComponent<AnswerScipt>().isCorrect = true;
             }
