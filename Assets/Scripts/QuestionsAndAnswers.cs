@@ -1,6 +1,6 @@
 [System.Serializable]
 
-public class QestionsAndAnswers
+public class QuestionsAndAnswers
 {
  public string Questions;
  public string[] Answers;

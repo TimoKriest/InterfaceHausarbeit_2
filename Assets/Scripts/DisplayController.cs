@@ -5,42 +5,45 @@ using UnityEngine;
 public class DisplayController : MonoBehaviour
 {
     [SerializeField] public CanvasGroup targetCanvasGroupToFade;
-    [SerializeField] public CanvasGroup originCanvasGroupToFade;
     [SerializeField] public float fadeSpeed = 1.0f;
     
-    private bool startFaded = true;
-    private bool fadingIn;
-    private bool fadingOut;
+    private CanvasGroup _originCanvasGroupToFade;
+    private bool _startFaded = true;
+    private bool _fadingIn;
+    private bool _fadingOut;
 
     void Start()
     {
-        if (startFaded)
+        if (_startFaded)
         {
             targetCanvasGroupToFade.alpha = 0;
+            targetCanvasGroupToFade.interactable = false;
+            targetCanvasGroupToFade.blocksRaycasts = false;
         }
+
+        _originCanvasGroupToFade = GetComponentInParent<CanvasGroup>();
     }
 
     public void FadeIn()
     {
         if (targetCanvasGroupToFade.GetComponent<GameSettings>())
         {
-            targetCanvasGroupToFade.GetComponentInChildren<DisplayController>().targetCanvasGroupToFade = originCanvasGroupToFade;
-            print("Voodoo");
+            targetCanvasGroupToFade.GetComponentInChildren<DisplayController>().targetCanvasGroupToFade = _originCanvasGroupToFade;
         }
         
-        if (!fadingOut)
+        if (!_fadingOut)
         {
-            fadingIn = true;
-            StartCoroutine("FadeInCoroutine");
+            _fadingIn = true;
+            StartCoroutine(nameof(FadeInCoroutine));
         }
     }
 
     private void FadeOut()
     {
-        if (!fadingIn)
+        if (!_fadingIn)
         {
-            fadingOut = true;
-            StartCoroutine("FadeOutCoroutine");
+            _fadingOut = true;
+            StartCoroutine(nameof(FadeOutCoroutine));
         }
     }
 
@@ -54,19 +57,19 @@ public class DisplayController : MonoBehaviour
         }
         targetCanvasGroupToFade.interactable = true;
         targetCanvasGroupToFade.blocksRaycasts = true;
-        fadingIn = false;
+        _fadingIn = false;
         FadeOut();
     }
 
     IEnumerator FadeOutCoroutine()
     {
-        originCanvasGroupToFade.interactable = false;
-        originCanvasGroupToFade.blocksRaycasts = false;
-        while (originCanvasGroupToFade.alpha > 0)
+        _originCanvasGroupToFade.interactable = false;
+        _originCanvasGroupToFade.blocksRaycasts = false;
+        while (_originCanvasGroupToFade.alpha > 0)
         {
-            originCanvasGroupToFade.alpha -= (fadeSpeed * Time.deltaTime);
+            _originCanvasGroupToFade.alpha -= (fadeSpeed * Time.deltaTime);
             yield return null;
         }
-        fadingOut = false;
+        _fadingOut = false;
     }
 }

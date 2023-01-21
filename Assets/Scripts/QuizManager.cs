@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
-    public List<QestionsAndAnswers> QestionsAndAnswersList;
+    [SerializeField] private GameObject startMenu;
+    [SerializeField] private RandomQuizType _randomQuizType;
+    
+    public List<QuestionsAndAnswers> questionsAndAnswersList;
     public GameObject[] options;
     public int currentQuestion;
     public TMP_Text QuestonText;
-    public GameObject QuizPanel;
-    public GameObject EndScenePanel;
-    public GameObject StartScenePanel;
     public TMP_Text ScoreText;
 
     int localQuestions = 0;
@@ -22,41 +22,44 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
-       StartScenePanel.SetActive(true);
+        // Check ob StartMenu aktiv ist. Wenn nicht -> aktivieren
+        if(!startMenu.activeSelf) startMenu.SetActive(true);
     }
-    // Beim Starten wird die SetQuestion() Methode aufgerufen und das EndScenePanel wird deaktiviert.
+    
     public void StartGame()
     {
-        localQuestions = QestionsAndAnswersList.Count;
-        QuizPanel.SetActive(true);
-        StartScenePanel.SetActive(false);
-        EndScenePanel.SetActive(false);
-        SetQuestion();
+        //localQuestions = questionsAndAnswersList.Count;
+        startMenu.SetActive(false);
+        _randomQuizType.SelectRandomQuizMenu().SetActive(true);
+        //SetQuestion();
     }
 
     // Zieht die beantwortete Frage aus der Liste, und ruft die SetQuestion() Methode auf. Und vergibt einen Punkt.
-    public void correctAnswer(){
-        score +=1;
-        QestionsAndAnswersList.RemoveAt(currentQuestion);
+    public void correctAnswer()
+    {
+        score += 1;
+        questionsAndAnswersList.RemoveAt(currentQuestion);
         SetQuestion();
     }
+
     // Zieht die beantwortete Frage aus der Liste, und ruft die SetQuestion() Methode auf. Vergibt jedoch keine Punkte.
-    public void wrongAnswer(){
-        QestionsAndAnswersList.RemoveAt(currentQuestion);
-        
+    public void wrongAnswer()
+    {
+        questionsAndAnswersList.RemoveAt(currentQuestion);
+
         SetQuestion();
     }
 
     // Lädt die aktuelle Scene neu.
 
-    public void backToMenu(){
+    public void backToMenu()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     // Deaktiviert das QuizPanel und aktiviert das EndScenePanel.
-    public void GameOver(){
-        QuizPanel.SetActive(false);
-        EndScenePanel.SetActive(true);
+    public void GameOver()
+    {
         ScoreText.text = "You got " + score + " out of " + localQuestions + " correct!";
     }
 
@@ -67,9 +70,9 @@ public class QuizManager : MonoBehaviour
         {
             // Alle Fragen werden beim Start auf falsch gesetzt.
             options[i].GetComponent<AnswerScipt>().isCorrect = false;
-            options[i].GetComponentInChildren<TMP_Text>().text = QestionsAndAnswersList[currentQuestion].Answers[i];
+            options[i].GetComponentInChildren<TMP_Text>().text = questionsAndAnswersList[currentQuestion].Answers[i];
 
-            if (QestionsAndAnswersList[currentQuestion].CorrectAnswer == i + 1)
+            if (questionsAndAnswersList[currentQuestion].CorrectAnswer == i + 1)
             {
                 options[i].GetComponent<AnswerScipt>().isCorrect = true;
             }
@@ -77,16 +80,24 @@ public class QuizManager : MonoBehaviour
     }
 
     // Setzt die Fragen und ruft die SetAnswer() Methode auf. Sollten keine Fragen mehr übrig sein, wird die Gameover methode gerufen.
-    void SetQuestion()
+    public TMP_Text SetQuestion()
     {
-        if (QestionsAndAnswersList.Count == 0)
+        if (questionsAndAnswersList.Count == 0)
         {
             GameOver();
-        }else if (QestionsAndAnswersList.Count >= 1)
-        {
-        currentQuestion = Random.Range(0, QestionsAndAnswersList.Count);
-        QuestonText.text = QestionsAndAnswersList[currentQuestion].Questions;
-        SetAnswer();
         }
+        else if (questionsAndAnswersList.Count >= 1)
+        {
+            currentQuestion = Random.Range(0, questionsAndAnswersList.Count);
+            QuestonText.text = questionsAndAnswersList[currentQuestion].Questions;
+            SetAnswer();
+        }
+
+        return QuestonText;
+    }
+
+    public List<QuestionsAndAnswers> GetQuestionsAndAnswersList()
+    {
+        return questionsAndAnswersList;
     }
 }
