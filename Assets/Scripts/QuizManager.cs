@@ -9,31 +9,27 @@ public class QuizManager : MonoBehaviour
 {
     [SerializeField] private GameObject startMenu;
     [SerializeField] private RandomQuizType _randomQuizType;
+    [SerializeField] private GameObject[] gameMenues;
     
     public List<QuestionsAndAnswers> questionsAndAnswersList;
     public GameObject[] options;
     public int currentQuestion;
-    public TextMeshProUGUI QuestionText;
-    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI questionText;
+    public TextMeshProUGUI scoreText;
 
-    int localQuestions = 0;
+    int localQuestions;
     public int score;
-    public bool restart = false;
+    public bool restart;
     
     private void Start()
     {
         // Check ob StartMenu aktiv ist. Wenn nicht -> aktivieren
         if(!startMenu.activeSelf) startMenu.SetActive(true);
-        
     }
     
     public void StartGame()
     {
-        //localQuestions = questionsAndAnswersList.Count;
-        GameObject targetMenu = _randomQuizType.SelectRandomQuizMenu();
-        //targetMenu.SetActive(true);
-        startMenu.GetComponent<DisplayController>().targetCanvasGroupToFade = targetMenu.GetComponent<CanvasGroup>();
-
+        localQuestions = questionsAndAnswersList.Count;
         //SetQuestion();
     }
 
@@ -63,7 +59,7 @@ public class QuizManager : MonoBehaviour
     // Deaktiviert das QuizPanel und aktiviert das EndScenePanel.
     public void GameOver()
     {
-        ScoreText.text = "You got " + score + " out of " + localQuestions + " correct!";
+        scoreText.text = "You got " + score + " out of " + localQuestions + " correct!";
     }
 
     // Setzt die Antworten falls man diese richtig Beantwortet.
@@ -83,7 +79,7 @@ public class QuizManager : MonoBehaviour
     }
 
     // Setzt die Fragen und ruft die SetAnswer() Methode auf. Sollten keine Fragen mehr übrig sein, wird die Gameover methode gerufen.
-    public TextMeshProUGUI SetQuestion()
+    public GameObject SetQuestion()
     {
         if (questionsAndAnswersList.Count == 0)
         {
@@ -92,11 +88,36 @@ public class QuizManager : MonoBehaviour
         else if (questionsAndAnswersList.Count >= 1)
         {
             currentQuestion = Random.Range(0, questionsAndAnswersList.Count);
-            QuestionText.text = questionsAndAnswersList[currentQuestion].Questions;
-            SetAnswer();
+            
+            if (questionsAndAnswersList[currentQuestion].singleAnswer)
+            {
+                GameObject singleChoice = gameMenues[0];
+                print("SingleAnswer");
+                singleChoice.GetComponent<MenuDisplayManager>().SetQuestionTxt("TestFrageSingle");
+                return singleChoice;
+            }
+            
+            if (questionsAndAnswersList[currentQuestion].multipleAnswers)
+            {
+                GameObject multiChoice = gameMenues[1];
+                print("MultiAnswer");
+                multiChoice.GetComponent<MenuDisplayManager>().SetQuestionTxt("TestFrageMulti");
+                return multiChoice;
+            }
+            
+            if (questionsAndAnswersList[currentQuestion].sliderAnswer)
+            {
+                GameObject sliderChoice = gameMenues[2];
+                print("SliderAnswer");
+                sliderChoice.GetComponent<MenuDisplayManager>().SetQuestionTxt("TestFrageSlider");
+                return sliderChoice;
+            }
+            //questionText.text = questionsAndAnswersList[currentQuestion].Questions;
+            
+            //SetAnswer();
         }
 
-        return QuestionText;
+        return null;
     }
 
     public List<QuestionsAndAnswers> GetQuestionsAndAnswersList()
