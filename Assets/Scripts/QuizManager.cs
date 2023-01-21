@@ -24,13 +24,16 @@ public class QuizManager : MonoBehaviour
     {
         // Check ob StartMenu aktiv ist. Wenn nicht -> aktivieren
         if(!startMenu.activeSelf) startMenu.SetActive(true);
+        
     }
     
     public void StartGame()
     {
         //localQuestions = questionsAndAnswersList.Count;
-        startMenu.SetActive(false);
-        _randomQuizType.SelectRandomQuizMenu().SetActive(true);
+        GameObject targetMenu = _randomQuizType.SelectRandomQuizMenu();
+        //targetMenu.SetActive(true);
+        startMenu.GetComponent<DisplayController>().targetCanvasGroupToFade = targetMenu.GetComponent<CanvasGroup>();
+
         //SetQuestion();
     }
 

@@ -14,18 +14,27 @@ public class DisplayController : MonoBehaviour
 
     void Start()
     {
-        if (_startFaded)
-        {
-            targetCanvasGroupToFade.alpha = 0;
-            targetCanvasGroupToFade.interactable = false;
-            targetCanvasGroupToFade.blocksRaycasts = false;
-        }
+        // if (_startFaded && targetCanvasGroupToFade)
+        // {
+        //     targetCanvasGroupToFade.alpha = 0;
+        //     targetCanvasGroupToFade.interactable = false;
+        //     targetCanvasGroupToFade.blocksRaycasts = false;
+        // }
 
         _originCanvasGroupToFade = GetComponentInParent<CanvasGroup>();
     }
 
     public void FadeIn()
     {
+        
+        if (_startFaded && targetCanvasGroupToFade)
+        {
+            targetCanvasGroupToFade.alpha = 0;
+            targetCanvasGroupToFade.interactable = false;
+            targetCanvasGroupToFade.blocksRaycasts = false;
+        }
+        
+        print("Fading In");
         if (targetCanvasGroupToFade.GetComponent<GameSettings>())
         {
             targetCanvasGroupToFade.GetComponentInChildren<DisplayController>().targetCanvasGroupToFade = _originCanvasGroupToFade;
