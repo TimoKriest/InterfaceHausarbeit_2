@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class QuizManager : MonoBehaviour
 {
@@ -12,14 +13,13 @@ public class QuizManager : MonoBehaviour
     public List<QuestionsAndAnswers> questionsAndAnswersList;
     public GameObject[] options;
     public int currentQuestion;
-    public TMP_Text QuestonText;
-    public TMP_Text ScoreText;
+    public TextMeshProUGUI QuestionText;
+    public TextMeshProUGUI ScoreText;
 
     int localQuestions = 0;
     public int score;
     public bool restart = false;
-
-
+    
     private void Start()
     {
         // Check ob StartMenu aktiv ist. Wenn nicht -> aktivieren
@@ -73,7 +73,7 @@ public class QuizManager : MonoBehaviour
         {
             // Alle Fragen werden beim Start auf falsch gesetzt.
             options[i].GetComponent<AnswerScipt>().isCorrect = false;
-            options[i].GetComponentInChildren<TMP_Text>().text = questionsAndAnswersList[currentQuestion].Answers[i];
+            options[i].GetComponentInChildren<TextMeshProUGUI>().text = questionsAndAnswersList[currentQuestion].Answers[i];
 
             if (questionsAndAnswersList[currentQuestion].CorrectAnswer == i + 1)
             {
@@ -83,7 +83,7 @@ public class QuizManager : MonoBehaviour
     }
 
     // Setzt die Fragen und ruft die SetAnswer() Methode auf. Sollten keine Fragen mehr übrig sein, wird die Gameover methode gerufen.
-    public TMP_Text SetQuestion()
+    public TextMeshProUGUI SetQuestion()
     {
         if (questionsAndAnswersList.Count == 0)
         {
@@ -92,11 +92,11 @@ public class QuizManager : MonoBehaviour
         else if (questionsAndAnswersList.Count >= 1)
         {
             currentQuestion = Random.Range(0, questionsAndAnswersList.Count);
-            QuestonText.text = questionsAndAnswersList[currentQuestion].Questions;
+            QuestionText.text = questionsAndAnswersList[currentQuestion].Questions;
             SetAnswer();
         }
 
-        return QuestonText;
+        return QuestionText;
     }
 
     public List<QuestionsAndAnswers> GetQuestionsAndAnswersList()
