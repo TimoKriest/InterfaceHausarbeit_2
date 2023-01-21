@@ -45,7 +45,6 @@ public class QuizManager : MonoBehaviour
     public void wrongAnswer()
     {
         questionsAndAnswersList.RemoveAt(currentQuestion);
-
         SetQuestion();
     }
 
