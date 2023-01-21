@@ -119,6 +119,7 @@ public class QuizManager : MonoBehaviour
         return null;
     }
 
+    // Gibt die Liste mit den Fragen und Antworten zurück.
     public List<QuestionsAndAnswers> GetQuestionsAndAnswersList()
     {
         return questionsAndAnswersList;

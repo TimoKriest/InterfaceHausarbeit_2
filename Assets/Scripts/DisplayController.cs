@@ -12,6 +12,7 @@ public class DisplayController : MonoBehaviour
     private bool _fadingIn;
     private bool _fadingOut;
 
+    // Holt sich den CanvasGroup, der angezeigt werden soll und blendet diesen ein.
     void Start()
     {
         // if (_startFaded && targetCanvasGroupToFade)
@@ -24,6 +25,7 @@ public class DisplayController : MonoBehaviour
         _originCanvasGroupToFade = GetComponentInParent<CanvasGroup>();
     }
 
+    // FadeIn sorgt dafür, dass der CanvasGroup, der angezeigt werden soll eingeblendet wird.
     public void FadeIn()
     {
         
@@ -47,6 +49,7 @@ public class DisplayController : MonoBehaviour
         }
     }
 
+    // Fadeout sorgt dafür, dass der CanvasGroup, der gerade angezeigt wird ausgeblendet wird.
     private void FadeOut()
     {
         if (!_fadingIn)
@@ -56,6 +59,7 @@ public class DisplayController : MonoBehaviour
         }
     }
 
+ // FadeInCoroutine und FadeOutCoroutine sind die eigentlichen Methoden, die den CanvasGroup ein- und ausblenden.
     IEnumerator FadeInCoroutine()
     {
         while (targetCanvasGroupToFade.alpha < 1)

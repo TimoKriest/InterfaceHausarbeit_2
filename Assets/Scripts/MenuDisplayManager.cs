@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// Eine Klasse die die verwaltung der oft benutzten sachen übernimmt und die anderen scripts nicht so vollmüllt.
 public class MenuDisplayManager : MonoBehaviour
 {
     public TextMeshProUGUI questionTxt;

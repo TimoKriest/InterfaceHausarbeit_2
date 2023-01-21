@@ -13,12 +13,13 @@ public class AnswerScipt : MonoBehaviour
     public AudioSource correctSound;
     public AudioSource wrongSound;
 
-
+// Holt sich die Farbe des Buttons beim starten des Spiels.
     void Start()
     {
         startColor = GetComponent<Image>().color;
     }
 
+// Wenn der Button gedrückt wird, wird die Methode checkAnswer aufgerufen.
  public void checkAnswer(){
         selected = true;
         if (isCorrect)
@@ -36,6 +37,8 @@ public class AnswerScipt : MonoBehaviour
         StartCoroutine(waitAndDeactivate());
 
  }
+
+// Startet den Timer, der die Farbe des Buttons wieder zurücksetzt. Ruft außerdem die Methode correctAnswer oder wrongAnswer aus dem QuizManager auf.
     private void resetColor(){
             GetComponent<Image>().color = startColor;
             answerTimer = 1f;

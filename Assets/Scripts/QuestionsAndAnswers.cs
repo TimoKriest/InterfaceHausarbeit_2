@@ -1,5 +1,6 @@
 [System.Serializable]
 
+// Erstellt eine Klasse die die Fragen und Antworten speichert.
 public class QuestionsAndAnswers
 {
     public string Questions;
