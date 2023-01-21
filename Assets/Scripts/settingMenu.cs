@@ -8,7 +8,8 @@ public class settingMenu : MonoBehaviour
     public TMPro.TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
 
-    // Start is called before the first frame update
+    //  Start wird beim Starten des Spiels aufgerufen und initialisiert die Auflösung des Spiels.
+    //  Außerdem werden die verfügbaren Auflösungen in die Dropdown-Liste eingetragen.
     void Start()
     {
        resolutions = Screen.resolutions;
@@ -30,15 +31,10 @@ public class settingMenu : MonoBehaviour
        resolutionDropdown.RefreshShownValue();
     }
 
+    // setResolution setzt die Auflösung des Spiels auf die gewählte Auflösung.
     public void setResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

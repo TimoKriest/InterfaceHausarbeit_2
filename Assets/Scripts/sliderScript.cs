@@ -8,14 +8,14 @@ public class sliderScript : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private TextMeshProUGUI sliderText;
-     // Start is called before the first frame update
+     // Wenn der Slider bewegt wird, wird der Text aktualisiert.
     void Start()
     {
         slider.onValueChanged.AddListener((v) =>{
             sliderText.text = v.ToString("0");
         });
     }
-    
+    // Gibt den Wert des Sliders zurück.
     public int getSliderValue()
     {
         return (int)slider.value;

@@ -30,7 +30,7 @@ public class QuizManager : MonoBehaviour
     public void StartGame()
     {
         localQuestions = questionsAndAnswersList.Count;
-        //SetQuestion();
+        SetQuestion();
     }
 
     // Zieht die beantwortete Frage aus der Liste, und ruft die SetQuestion() Methode auf. Und vergibt einen Punkt.
@@ -69,11 +69,12 @@ public class QuizManager : MonoBehaviour
             // Alle Fragen werden beim Start auf falsch gesetzt.
             options[i].GetComponent<AnswerScipt>().isCorrect = false;
             options[i].GetComponentInChildren<TextMeshProUGUI>().text = questionsAndAnswersList[currentQuestion].Answers[i];
-
-            if (questionsAndAnswersList[currentQuestion].CorrectAnswer[i] == i + 1)
+/*
+            if (questionsAndAnswersList[currentQuestion].CorrectAnswer[i] == i + 1 )
             {
                 options[i].GetComponent<AnswerScipt>().isCorrect = true;
             }
+            */
         }
     }
 
@@ -93,6 +94,9 @@ public class QuizManager : MonoBehaviour
                 GameObject singleChoice = gameMenues[0];
                 print("SingleAnswer");
                 singleChoice.GetComponent<MenuDisplayManager>().SetQuestionTxt("TestFrageSingle");
+                questionText.text = questionsAndAnswersList[currentQuestion].Questions;
+                SetAnswer();
+
                 return singleChoice;
             }
             
@@ -111,14 +115,13 @@ public class QuizManager : MonoBehaviour
                 sliderChoice.GetComponent<MenuDisplayManager>().SetQuestionTxt("TestFrageSlider");
                 return sliderChoice;
             }
-            //questionText.text = questionsAndAnswersList[currentQuestion].Questions;
             
-            //SetAnswer();
         }
 
         return null;
     }
 
+    // Gibt die Liste mit den Fragen und Antworten zurück.
     public List<QuestionsAndAnswers> GetQuestionsAndAnswersList()
     {
         return questionsAndAnswersList;

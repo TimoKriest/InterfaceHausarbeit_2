@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class deactivateSlider : MonoBehaviour
 {
     public Slider slider;
-    // Start is called before the first frame update
+    // Deaktiviert den Slider sobald der Spieler die Antwort abgegeben hat.
     public void sliderDeactivate()
     {
         slider.interactable= false;
