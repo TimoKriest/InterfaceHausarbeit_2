@@ -10,7 +10,6 @@ public class VolumeScript : MonoBehaviour
     private void Start(){
         if (PlayerPrefs.HasKey("volume")){
             load();
-            PlayerPrefs.SetFloat("volume", 1);
         }
         else{
             save();
