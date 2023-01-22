@@ -22,6 +22,7 @@ public class QuizManager : MonoBehaviour
     
     private int localQuestions;
     private GameObject[] answerBtn;
+    private DisplayController _displayController;
     private void Start()
     {
         // Check ob StartMenu aktiv ist. Wenn nicht -> aktivieren

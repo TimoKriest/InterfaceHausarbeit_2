@@ -11,6 +11,8 @@ public class sliderScript : MonoBehaviour
      // Wenn der Slider bewegt wird, wird der Text aktualisiert.
     void Start()
     {
+        slider.interactable= true;
+        slider.value = 0;
         slider.onValueChanged.AddListener((v) =>{
             sliderText.text = v.ToString("0");
         });

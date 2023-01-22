@@ -86,42 +86,44 @@ public class DisplayController : MonoBehaviour
  //            StartCoroutine(nameof(FadeInCoroutine));
  //        }
  //    }
- //
- //    // Fadeout sorgt dafür, dass der CanvasGroup, der gerade angezeigt wird ausgeblendet wird.
- //    private void FadeOut()
- //    {
- //        if (!_fadingIn)
- //        {
- //            _fadingOut = true;
- //            StartCoroutine(nameof(FadeOutCoroutine));
- //        }
- //    }
- //
- // // FadeInCoroutine und FadeOutCoroutine sind die eigentlichen Methoden, die den CanvasGroup ein- und ausblenden.
- //    IEnumerator FadeInCoroutine()
- //    {
- //        while (targetCanvasGroupToFade.alpha < 1)
- //        {
- //            targetCanvasGroupToFade.alpha += (fadeDuration * Time.deltaTime);
- //            yield return FadeOutCoroutine();
- //        }
- //        targetCanvasGroupToFade.interactable = true;
- //        targetCanvasGroupToFade.blocksRaycasts = true;
- //        _fadingIn = false;
- //        FadeOut();
- //    }
- //
- //    IEnumerator FadeOutCoroutine()
- //    {
- //        _originCanvasGroupToFade.interactable = false;
- //        _originCanvasGroupToFade.blocksRaycasts = false;
- //        while (_originCanvasGroupToFade.alpha > 0)
- //        {
- //            _originCanvasGroupToFade.alpha -= (fadeDuration * Time.deltaTime);
- //            yield return null;
- //        }
- //        _fadingOut = false;
- //    }
+ 
+ 
+     // Fadeout sorgt dafür, dass der CanvasGroup, der gerade angezeigt wird ausgeblendet wird.
+     public void FadeOut()
+     {
+         if (!_fadingIn)
+         {
+            _fadingOut = true;
+            StartCoroutine(nameof(FadeOutCoroutine));
+         }
+     }
+ /*
+  // FadeInCoroutine und FadeOutCoroutine sind die eigentlichen Methoden, die den CanvasGroup ein- und ausblenden.
+     IEnumerator FadeInCoroutine()
+     {
+         while (targetCanvasGroupToFade.alpha < 1)
+         {
+             targetCanvasGroupToFade.alpha += (fadeDuration * Time.deltaTime);
+             yield return FadeOutCoroutine();
+         }
+         targetCanvasGroupToFade.interactable = true;
+         targetCanvasGroupToFade.blocksRaycasts = true;
+         _fadingIn = false;
+         FadeOut();
+     }
+     */
+
+     IEnumerator FadeOutCoroutine()
+     {
+         _originCanvasGroupToFade.interactable = false;
+         _originCanvasGroupToFade.blocksRaycasts = false;
+         while (_originCanvasGroupToFade.alpha > 0)
+         {
+             _originCanvasGroupToFade.alpha -= (fadeDuration * Time.deltaTime);
+             yield return null;
+         }
+         _fadingOut = false;
+     }
     
     private IEnumerator FadeRoutine(CanvasGroup fadeOutCanvas, CanvasGroup fadeInCanvas)
     {

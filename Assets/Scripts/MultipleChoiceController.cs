@@ -92,25 +92,55 @@ public class MultipleChoiceController : MonoBehaviour
             {
                 isCorrect = true;
                 break;
+            } 
+            else {
+                incorrect++;
             }
+
         }
-    
+
         // Farbe des Buttons ändern
         if (isCorrect)
         {
-            answerButtons[buttonIndex].GetComponent<Image>().color = Color.green;
+            //answerButtons[buttonIndex].GetComponent<Image>().color = Color.green;
             correct++;
         }
         else
         {
-            answerButtons[buttonIndex].GetComponent<Image>().color = Color.red;
+            //answerButtons[buttonIndex].GetComponent<Image>().color = Color.red;
             incorrect++;
         }
         
         print("Correct: " + correct);
         print("Incorrect: " + incorrect);
         print("Answers: " +correctAnswers.Length);
-
+/*
+        if (correct == correctAnswers.Length || incorrect >= 3)
+        {
+            foreach (var btn in answerButtons)
+            {
+                btn.GetComponent<Image>().color = Color.white;
+            }
+            CanvasGroup newTargetCanvasGrp = _quizManager.SetQuestion().GetComponent<CanvasGroup>();
+            print("Canvas Grp Target: " + newTargetCanvasGrp);
+           //_displayController.targetCanvasGroupToFade = newTargetCanvasGrp;
+           //_displayController.FadeIn();
+           //print("Canvas Grp Origin: " + _displayController._originCanvasGroupToFade);
+        }
+        */
+    }
+    
+    public void checkResult() {
+        
+            for (int i = 0; i < correctAnswers.Length; i++)
+            {          
+        if (correct == correctAnswers.Length) {
+                answerButtons[i].GetComponent<Image>().color = Color.green;
+        }
+        else {
+            answerButtons[i].GetComponent<Image>().color = Color.red;
+        }
+        }
         if (correct == correctAnswers.Length || incorrect >= 3)
         {
             foreach (var btn in answerButtons)

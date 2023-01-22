@@ -330,9 +330,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11740481}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &11740484
 MonoBehaviour:
@@ -364,12 +364,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target1CanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 1317398320}
   target2CanvasGroupToFade: {fileID: 0}
   target3CanvasGroupToFade: {fileID: 0}
   target4CanvasGroupToFade: {fileID: 0}
   fadeDuration: 2
-  menu1Btn: {fileID: 0}
+  menu1Btn: {fileID: 7153028462363670069}
   menu2Btn: {fileID: 0}
   menu3Btn: {fileID: 0}
   menu4Btn: {fileID: 0}
@@ -2598,24 +2598,24 @@ MonoBehaviour:
     multipleAnswers: 0
     singleAnswer: 1
     sliderAnswer: 0
-  - Question: Das ist eine Slider Testfrage
+  - Question: Das ist eine Slider Testfrage - 60
     Answers:
-    - 60
-    CorrectAnswer: 00000000
+    - 0
+    CorrectAnswer: 3c000000
     multipleAnswers: 0
     singleAnswer: 0
     sliderAnswer: 1
-  - Question: Das ist eine Slider Testfrage 2
+  - Question: Das ist eine Slider Testfrage 2 - 42
     Answers:
-    - 42
-    CorrectAnswer: 00000000
+    - 0
+    CorrectAnswer: 2a000000
     multipleAnswers: 0
     singleAnswer: 0
     sliderAnswer: 1
-  - Question: Das ist eine Slider Testfrage 3
+  - Question: Das ist eine Slider Testfrage 3 - 20
     Answers:
-    - 120
-    CorrectAnswer: 00000000
+    - 0
+    CorrectAnswer: 14000000
     multipleAnswers: 0
     singleAnswer: 0
     sliderAnswer: 1
@@ -4068,7 +4068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &638666322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4098,9 +4098,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638666321}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &638666324
 MonoBehaviour:
@@ -6630,6 +6630,182 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1137884377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137884378}
+  - component: {fileID: 1137884383}
+  - component: {fileID: 1137884382}
+  - component: {fileID: 1137884381}
+  - component: {fileID: 1137884380}
+  - component: {fileID: 1137884379}
+  m_Layer: 5
+  m_Name: AnswerCheckButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1137884378
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137884377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1671509922}
+  m_Father: {fileID: 5936011753317255171}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -780.5, y: -271.4}
+  m_SizeDelta: {x: 476.4922, y: 90.2227}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1137884379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137884377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43484a6f82171f14f8792d204efc36a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  isCorrect: 0
+  selected: 0
+  quizManager: {fileID: 410698951}
+  answerTimer: 1
+  correctSound: {fileID: 1877254045}
+  wrongSound: {fileID: 2096440109}
+--- !u!114 &1137884380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137884377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
+--- !u!114 &1137884381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137884377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1137884382}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1358006013}
+        m_TargetAssemblyTypeName: MultipleChoiceController, Assembly-CSharp
+        m_MethodName: checkResult
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1137884382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137884377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ba1984f93df89b04f8e0849c78f614c9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1137884383
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137884377}
+  m_CullTransparentMesh: 1
 --- !u!1 &1159849308
 GameObject:
   m_ObjectHideFlags: 0
@@ -7984,13 +8160,14 @@ GameObject:
   - component: {fileID: 1358006011}
   - component: {fileID: 1358006012}
   - component: {fileID: 1358006013}
+  - component: {fileID: 1358006014}
   m_Layer: 0
   m_Name: MultipleChoice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1358006010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8020,9 +8197,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358006009}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1358006012
 MonoBehaviour:
@@ -8067,6 +8244,27 @@ MonoBehaviour:
   - {fileID: 2972871223006030183}
   _quizManager: {fileID: 410698951}
   _displayController: {fileID: 95031936}
+--- !u!114 &1358006014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358006009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1CanvasGroupToFade: {fileID: 11740483}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 1137884381}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &1380089596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4108844826591725263, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
@@ -9802,6 +10000,7 @@ GameObject:
   - component: {fileID: 1659854007}
   - component: {fileID: 1659854008}
   - component: {fileID: 1659854009}
+  - component: {fileID: 1659854010}
   m_Layer: 0
   m_Name: SingleChoice
   m_TagString: Untagged
@@ -9860,6 +10059,162 @@ MonoBehaviour:
   btnC: {fileID: 8929890546268507653}
   btnD: {fileID: 2972871221644479404}
   slider: {fileID: 0}
+--- !u!114 &1659854010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659854006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1CanvasGroupToFade: {fileID: 1358006011}
+  target2CanvasGroupToFade: {fileID: 1358006011}
+  target3CanvasGroupToFade: {fileID: 1358006011}
+  target4CanvasGroupToFade: {fileID: 1358006011}
+  fadeDuration: 2
+  menu1Btn: {fileID: 4835577143007292916}
+  menu2Btn: {fileID: 3656217661612327996}
+  menu3Btn: {fileID: 8929890546268507653}
+  menu4Btn: {fileID: 2972871221644479404}
+--- !u!1 &1671509921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671509922}
+  - component: {fileID: 1671509924}
+  - component: {fileID: 1671509923}
+  m_Layer: 5
+  m_Name: answer_txt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1671509922
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671509921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1137884378}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.009000001, y: 0.108}
+  m_AnchorMax: {x: 1, y: 0.96674895}
+  m_AnchoredPosition: {x: 0.24823, y: -4.8879967}
+  m_SizeDelta: {x: -0.49628, y: 15.776}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1671509923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671509921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Check Answers!
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: f1245eb1ec3fa3b49bbb14c8ea9d97d0, type: 2}
+  m_sharedMaterial: {fileID: 8578246531297318196, guid: f1245eb1ec3fa3b49bbb14c8ea9d97d0, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 29.17
+  m_fontSizeBase: 29.17
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -0.01739502, y: 0, z: -0.000061035156, w: 12.234467}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1671509924
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671509921}
+  m_CullTransparentMesh: 1
 --- !u!1 &1698836242
 GameObject:
   m_ObjectHideFlags: 0
@@ -10467,7 +10822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1830159700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16557,6 +16912,7 @@ RectTransform:
   - {fileID: 1373706192548366536}
   - {fileID: 6503272859971093233}
   - {fileID: 643133722025641816}
+  - {fileID: 1137884378}
   m_Father: {fileID: 95031935}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17996,8 +18352,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e652647fb019fc4aa3394b0602d0806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizManager: {fileID: 410698951}
   slider: {fileID: 1973138136}
   sliderText: {fileID: 646141102}
+  currentQuestion: 0
+  correctSound: {fileID: 1877254045}
+  wrongSound: {fileID: 2096440109}
+  isCorrect: 0
+  answerTimer: 1
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!222 &8158446245414186427
 CanvasRenderer:
   m_ObjectHideFlags: 0

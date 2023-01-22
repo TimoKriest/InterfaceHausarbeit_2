@@ -20,6 +20,7 @@ public class sliderCheckAnswer : MonoBehaviour
 void Start()
     {
         startColor = GetComponent<Image>().color;
+        slider.interactable= true;
     }
     // Deaktiviert den Slider sobald der Spieler die Antwort abgegeben hat.
     public void sliderDeactivate()
