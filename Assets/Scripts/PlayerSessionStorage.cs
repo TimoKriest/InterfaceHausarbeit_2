@@ -1,78 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class PlayerSessionStorage : MonoBehaviour
 {
-    public int playerPoints;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI highscoreText;
-    public TextMeshProUGUI playerText;
-    public string[] questions;
-    public string[] answers;
-    public int currentQuestion;
+    [Header("HighscoreStats")]
+    [SerializeField] private TextMeshProUGUI playerHighscoreName;
+    [SerializeField] private TextMeshProUGUI playerHighscoreText;
+    [Header("CurrentPlayerStats")]
+    [SerializeField] private TextMeshProUGUI playerCurrentScoreText;
+    [SerializeField] private TextMeshProUGUI playerCurrentScoreOnHighscore;
+    [SerializeField] private TextMeshProUGUI playerNameText;
+    [Header("NameInputField")]
+    [SerializeField] private GameObject playerNameInput;
+    [SerializeField] private GameObject playerNameAfterInput;
+    
     private int highscore;
     private string playerName;
-    public GameObject endGamePanel;
-    public GameObject playerNameInput;
-
-
-    
-
+    private int _playerPoints;
     // Bei Start wird der Highscore und der Name des Spielers geladen.
-    void Start()
+    private void Start()
     {
-        playerPoints = 0;
+        _playerPoints = 0;
         highscore = PlayerPrefs.GetInt("highscore", 0);
-        highscoreText.text = "Highscore: " + highscore;
-        currentQuestion = 0;
-        playerName = PlayerPrefs.GetString("playerName", "Player");
-        UpdateScore();
+        playerHighscoreText.text = highscore.ToString();
+        playerHighscoreName.text = PlayerPrefs.GetString("playerName", "Player");
     }
 
     public void __onEditEnd()
     {
         playerName = playerNameInput.GetComponent<TMP_InputField>().text;
-        endGamePanel.SetActive(true);
+        playerNameText.text = playerName;
+        playerNameAfterInput.SetActive(true);
         playerNameInput.SetActive(false);
         PlayerPrefs.SetString("playerName", playerName);
-        UpdateScore();
-    }
-
-    // CheckAnswer überprüft welche Antwort der Spieler ausgewählt hat und vergleicht diese mit der richtigen Antwort. Wenn die Antwort richtig ist, erhält der Spieler 10 Punkte.
-    public void CheckAnswer(string playerAnswer)
-    {
-        if (playerAnswer == answers[currentQuestion])
-        {
-            playerPoints += 10;
-        }
-        currentQuestion++;
-        UpdateScore();
+        EndGame();
     }
 
     // UpdateScore aktualisiert den Score des Spielers.
-    public void UpdateScore()
+    public void UpdateScore(int points)
     {
-        scoreText.text = "Score: " + playerPoints;
-        playerText.text = playerName;
+        _playerPoints = points;
+        playerCurrentScoreText.text = _playerPoints.ToString();
+        playerCurrentScoreOnHighscore.text = playerCurrentScoreText.text;
     }
 
     // EndGame überprüft ob der Spieler den Highscore erreicht hat und speichert diesen dann.
     public void EndGame()
     {
-
-        
-        if (playerPoints > highscore)
+        if (_playerPoints > highscore)
         {
-            
-            highscore = playerPoints;
+            highscore = _playerPoints;
             PlayerPrefs.SetInt("highscore", highscore);
             PlayerPrefs.SetString("playerName", playerName);
-            highscoreText.text = "Highscore: " + highscore + " by " + playerName;
-            playerText.text = playerName + " has the new highscore!";
-
+            playerHighscoreText.text = _playerPoints.ToString();
+            playerHighscoreName.text = playerName;
         }
     }
 }

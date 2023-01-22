@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,18 +16,14 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        // print("StartGame START");
-        // GameObject targetMenu = _randomQuizType.SelectRandomQuizMenu();
-        // targetMenu.SetActive(true);
-        // //print(menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade);
-        // menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade = targetMenu.GetComponent<CanvasGroup>();
-        // print(menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade);
-        // print("StartGame END");
-        
         _quizManager.StartGame();
-        GameObject targetMenu = _quizManager.SetQuestion();
-        targetMenu.SetActive(true);
-        //menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade = targetMenu.GetComponent<CanvasGroup>();
+        _quizManager.SetQuestion();
+        //targetMenu.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        StartGame();
     }
     
     public void QuitGame()
