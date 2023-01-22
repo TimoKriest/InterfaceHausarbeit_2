@@ -27,6 +27,7 @@ public class QuizManager : MonoBehaviour
     {
         // Check ob StartMenu aktiv ist. Wenn nicht -> aktivieren
         if(!startMenu.activeSelf) startMenu.SetActive(true);
+        currentQuestion = 0;
 
     }
     
@@ -40,20 +41,21 @@ public class QuizManager : MonoBehaviour
     public void correctAnswer()
     {
         score += 1;
-        questionsAndAnswersList.RemoveAt(currentQuestion);
+        //questionsAndAnswersList.RemoveAt(currentQuestion);
+        currentQuestion++;
         SetQuestion();
     }
 
     // Zieht die beantwortete Frage aus der Liste, und ruft die SetQuestion() Methode auf. Vergibt jedoch keine Punkte.
     public void wrongAnswer()
     {
-        questionsAndAnswersList.RemoveAt(currentQuestion);
+        //questionsAndAnswersList.RemoveAt(currentQuestion);
+        currentQuestion++;
         SetQuestion();
         
     }
 
     // Lädt die aktuelle Scene neu.
-
     public void backToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -89,16 +91,12 @@ public class QuizManager : MonoBehaviour
     // Setzt die Fragen und ruft die SetAnswer() Methode auf. Sollten keine Fragen mehr übrig sein, wird die Gameover methode gerufen.
     public GameObject SetQuestion()
     {
-        if (questionsAndAnswersList.Count <= 0)
+        if (currentQuestion == 3)
         {
             GameOver();
         }
-        else if (questionsAndAnswersList.Count >= 1)
-        {
-            currentQuestion = Random.Range(0, questionsAndAnswersList.Count);
-            //currentQuestion = 0;
             
-            if (questionsAndAnswersList[currentQuestion].singleAnswer)
+            if (currentQuestion == 0)
             {
                 GameObject singleChoice = gameMenues[0];
                 print("SingleAnswer");
@@ -110,7 +108,7 @@ public class QuizManager : MonoBehaviour
                 return singleChoice;
             }
             
-            if (questionsAndAnswersList[currentQuestion].multipleAnswers)
+            if (currentQuestion == 1)
             {
                 GameObject multiChoice = gameMenues[1];
                 print("MultiAnswer");
@@ -122,7 +120,7 @@ public class QuizManager : MonoBehaviour
                 return multiChoice;
             }
             
-            if (questionsAndAnswersList[currentQuestion].sliderAnswer)
+            if (currentQuestion == 2)
             {
                 GameObject sliderChoice = gameMenues[2];
                 print("SliderAnswer");
@@ -130,12 +128,10 @@ public class QuizManager : MonoBehaviour
                 sliderChoiceQuestion.SetQuestionTxt(questionsAndAnswersList[currentQuestion].Question);
                 
                 // TODO: Braucht eigene Methode, da Slider
-                //SetAnswer(sliderChoiceQuestion.GetAnswerButtons());
                 
                 return sliderChoice;
             }
-        }
-
+        
         return null;
     }
 
@@ -143,5 +139,9 @@ public class QuizManager : MonoBehaviour
     public List<QuestionsAndAnswers> GetQuestionsAndAnswersList()
     {
         return questionsAndAnswersList;
+    }
+    public void Update()
+    {
+     print(currentQuestion + " Current Question ");
     }
 }

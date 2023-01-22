@@ -57,9 +57,13 @@ public class MultipleChoiceController : MonoBehaviour
     [SerializeField] private Button[] answerButtons;
     [SerializeField] private QuizManager _quizManager;
     [SerializeField] private DisplayController _displayController;
-    
-    private int correct;
-    private int incorrect;
+    bool isCorrect = false;
+    public Color startColor;
+    public int correct;
+    public int incorrect;
+    public bool allCorrect = false;
+     public float answerTimer = 1f;
+    public GameObject MultiChoiceObject;
     
     //[Header("Fragen")]
     //[SerializeField] private string questionTxt;
@@ -71,6 +75,7 @@ public class MultipleChoiceController : MonoBehaviour
     // Initialisierung
     void Start()
     {
+        startColor = answerButtons[0].GetComponent<Image>().color;
         correct = 0;
         incorrect = 0;
         //questTxtDisplay.text = questionTxt;
@@ -84,74 +89,59 @@ public class MultipleChoiceController : MonoBehaviour
     // Methode zur Überprüfung der Antwort
     public void CheckAnswer(int buttonIndex)
     {
-        // Überprüfen, ob die Antwort richtig ist
-        bool isCorrect = false;
-        for (int i = 0; i < correctAnswers.Length; i++)
+        // Überprüfung, ob die Antwort richtig ist
+        if (correctAnswers.Contains(buttonIndex))
         {
-            if (buttonIndex == correctAnswers[i])
-            {
-                isCorrect = true;
-                break;
-            } 
-            else {
-                incorrect++;
-            }
-
-        }
-
-        // Farbe des Buttons ändern
-        if (isCorrect)
-        {
-            //answerButtons[buttonIndex].GetComponent<Image>().color = Color.green;
-            correct++;
+            MultiChoiceObject.GetComponent<MultipleChoiceController>().correct = +1;
+            print( MultiChoiceObject.GetComponent<MultipleChoiceController>().correct + "correct");
         }
         else
         {
-            //answerButtons[buttonIndex].GetComponent<Image>().color = Color.red;
-            incorrect++;
+            MultiChoiceObject.GetComponent<MultipleChoiceController>().incorrect = +1;
+            print( MultiChoiceObject.GetComponent<MultipleChoiceController>().incorrect + " falsch");
         }
-        
-        print("Correct: " + correct);
-        print("Incorrect: " + incorrect);
-        print("Answers: " +correctAnswers.Length);
-/*
-        if (correct == correctAnswers.Length || incorrect >= 3)
-        {
-            foreach (var btn in answerButtons)
-            {
-                btn.GetComponent<Image>().color = Color.white;
-            }
-            CanvasGroup newTargetCanvasGrp = _quizManager.SetQuestion().GetComponent<CanvasGroup>();
-            print("Canvas Grp Target: " + newTargetCanvasGrp);
-           //_displayController.targetCanvasGroupToFade = newTargetCanvasGrp;
-           //_displayController.FadeIn();
-           //print("Canvas Grp Origin: " + _displayController._originCanvasGroupToFade);
-        }
-        */
     }
     
     public void checkResult() {
-        
-            for (int i = 0; i < correctAnswers.Length; i++)
-            {          
-        if (correct == correctAnswers.Length) {
-                answerButtons[i].GetComponent<Image>().color = Color.green;
+        if (correct >= 1) {
+            allCorrect = true;
         }
-        else {
+
+            for (int i = 0; i < answerButtons.Length; i++)
+            {   
+                     if (answerButtons[i].GetComponent<AnswerScipt>().isCorrect == true){
+                    answerButtons[i].GetComponent<Image>().color = Color.green;
+        } else {
             answerButtons[i].GetComponent<Image>().color = Color.red;
         }
-        }
-        if (correct == correctAnswers.Length || incorrect >= 3)
-        {
-            foreach (var btn in answerButtons)
-            {
-                btn.GetComponent<Image>().color = Color.white;
-            }
-            CanvasGroup newTargetCanvasGrp = _quizManager.SetQuestion().GetComponent<CanvasGroup>();
-            print("Canvas Grp Target: " + newTargetCanvasGrp);
-           //_displayController.targetCanvasGroupToFade = newTargetCanvasGrp;
-           //_displayController.FadeIn();
-           //print("Canvas Grp Origin: " + _displayController._originCanvasGroupToFade);
-        }
+
     }
+    if (allCorrect){
+            _quizManager.correctAnswer();
+        }
+        else if(!allCorrect){
+            _quizManager.wrongAnswer();
+        }
+     StartCoroutine(waitAndDeactivate());
+    }
+
+    IEnumerator waitAndDeactivate(){
+        while(answerTimer > 0){
+            answerTimer -= Time.deltaTime;
+            yield return null;
+        }
+        resetColor();
+    }
+
+    private void resetColor(){
+            answerTimer = 1f;
+            //selected = false;
+                 correct = 0;
+                 incorrect = 0;
+             for (int j = 0; j < answerButtons.Length; j++)
+            {   
+                answerButtons[j].GetComponent<Image>().color = startColor;
+                answerButtons[j].GetComponent<AnswerScipt>().isCorrect = false;
+            }
+        }
 }

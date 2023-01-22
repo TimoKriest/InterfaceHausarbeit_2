@@ -2578,65 +2578,21 @@ MonoBehaviour:
     multipleAnswers: 0
     singleAnswer: 1
     sliderAnswer: 0
-  - Question: Das ist eine Single Choice Testfrage 2
+  - Question: Das ist eine Multiple Choice Testfrage 1
     Answers:
     - Falsch
-    - Falsch
+    - Nein
     - Richtig
-    - Falsch
-    CorrectAnswer: 02000000
-    multipleAnswers: 0
-    singleAnswer: 1
-    sliderAnswer: 0
-  - Question: Das ist eine Single Choice Testfrage 3
-    Answers:
-    - Falsch
-    - Falsch
-    - Falsch
     - Richtig
-    CorrectAnswer: 03000000
-    multipleAnswers: 0
-    singleAnswer: 1
-    sliderAnswer: 0
-  - Question: Das ist eine Slider Testfrage - 60
-    Answers:
-    - 0
-    CorrectAnswer: 3c000000
-    multipleAnswers: 0
+    CorrectAnswer: 0200000003000000
+    multipleAnswers: 1
     singleAnswer: 0
-    sliderAnswer: 1
+    sliderAnswer: 0
   - Question: Das ist eine Slider Testfrage 2 - 42
     Answers:
     - 0
     CorrectAnswer: 2a000000
     multipleAnswers: 0
-    singleAnswer: 0
-    sliderAnswer: 1
-  - Question: Das ist eine Slider Testfrage 3 - 20
-    Answers:
-    - 0
-    CorrectAnswer: 14000000
-    multipleAnswers: 0
-    singleAnswer: 0
-    sliderAnswer: 1
-  - Question: Das ist eine Multiple Choice Testfrage 1
-    Answers:
-    - Falsch
-    - Nein
-    - "Wei\xDF nicht"
-    - Richtig
-    CorrectAnswer: 
-    multipleAnswers: 1
-    singleAnswer: 0
-    sliderAnswer: 0
-  - Question: Das ist eine Multiple Choice Testfrage 2
-    Answers:
-    - Richtig
-    - Falsch
-    - Richtig
-    - Falsch
-    CorrectAnswer: 0000000002000000
-    multipleAnswers: 1
     singleAnswer: 0
     sliderAnswer: 1
   currentQuestion: 0
@@ -2657,10 +2613,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answers: []
-  correctAnswers: 
+  correctAnswers: 0200000003000000
   answerButtons: []
   _quizManager: {fileID: 0}
   _displayController: {fileID: 0}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  correct: 0
+  incorrect: 0
+  allCorrect: 0
+  answerTimer: 1
+  MultiChoiceObject: {fileID: 0}
 --- !u!1 &420134569
 GameObject:
   m_ObjectHideFlags: 0
@@ -8236,7 +8198,7 @@ MonoBehaviour:
   - Richtig
   - Falsch
   - Falsch
-  correctAnswers: 0000000001000000
+  correctAnswers: 0200000003000000
   answerButtons:
   - {fileID: 4835577144395042623}
   - {fileID: 3656217660283234039}
@@ -8244,6 +8206,12 @@ MonoBehaviour:
   - {fileID: 2972871223006030183}
   _quizManager: {fileID: 410698951}
   _displayController: {fileID: 95031936}
+  startColor: {r: 0, g: 0, b: 0, a: 0}
+  correct: 0
+  incorrect: 0
+  allCorrect: 0
+  answerTimer: 1
+  MultiChoiceObject: {fileID: 1358006009}
 --- !u!114 &1358006014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10822,7 +10790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1830159700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15975,7 +15943,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4512997754174284705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7454342031714964688}
+        m_TargetAssemblyTypeName: resetGame, Assembly-CSharp
+        m_MethodName: reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4512997754174284705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16041,6 +16021,7 @@ GameObject:
   - component: {fileID: 4512997754174284705}
   - component: {fileID: 4512997754174284704}
   - component: {fileID: 7454342031714964687}
+  - component: {fileID: 7454342031714964688}
   m_Layer: 5
   m_Name: btn_backToMainMenu
   m_TagString: Untagged
@@ -17566,7 +17547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Timo Kriest - 6907
+  m_text: Timo Kriest - 690727
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1245eb1ec3fa3b49bbb14c8ea9d97d0, type: 2}
   m_sharedMaterial: {fileID: 8578246531297318196, guid: f1245eb1ec3fa3b49bbb14c8ea9d97d0, type: 2}
@@ -18194,6 +18175,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26fcaa555c9aa44286d37d8765d4f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7454342031714964688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4512997754174284709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc59c7cd7d392b14db1857554abc2b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _quizManager: {fileID: 410698951}
 --- !u!114 &7454342032279300036
 MonoBehaviour:
   m_ObjectHideFlags: 0

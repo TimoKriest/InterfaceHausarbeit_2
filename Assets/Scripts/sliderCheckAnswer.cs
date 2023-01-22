@@ -16,29 +16,35 @@ public class sliderCheckAnswer : MonoBehaviour
     public float answerTimer = 1f;
     public Color startColor;
 
-
 void Start()
     {
         startColor = GetComponent<Image>().color;
         slider.interactable= true;
+
     }
     // Deaktiviert den Slider sobald der Spieler die Antwort abgegeben hat.
     public void sliderDeactivate()
     {
         slider.interactable= false;
         currentQuestion = quizManager.currentQuestion;
+        print( quizManager.questionsAndAnswersList[currentQuestion].CorrectAnswer[0] +"Correct Answerr");
+        print(slider.value + "Slider Value");
 
         if (slider.value == quizManager.questionsAndAnswersList[currentQuestion].CorrectAnswer[0]){
             GetComponent<Image>().color = Color.green;
             correctSound.Play();
             isCorrect = true;
-
         }
         else{
             GetComponent<Image>().color = Color.red;
             wrongSound.Play();
             isCorrect = false;
-
+        }
+        if (isCorrect){
+            quizManager.correctAnswer();
+        }
+        else if(!isCorrect){
+            quizManager.wrongAnswer();
         }
         StartCoroutine(waitAndDeactivate());
     }
@@ -48,18 +54,15 @@ void Start()
             answerTimer -= Time.deltaTime;
             yield return null;
         }
-        if (isCorrect){
-            quizManager.correctAnswer();
-        }
-        else if(!isCorrect){
-            quizManager.wrongAnswer();
-        }
         resetColor();
+        
     }
 
      private void resetColor(){
             GetComponent<Image>().color = startColor;
             answerTimer = 1f;
+            slider.interactable = true;
+            slider.value = 0;
             //selected = false;
         }
 }
