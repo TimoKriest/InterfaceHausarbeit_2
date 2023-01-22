@@ -7642,7 +7642,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1248725956}
-  - component: {fileID: 1248725957}
   m_Layer: 5
   m_Name: InterfaceInlay_highscore
   m_TagString: Untagged
@@ -7674,25 +7673,6 @@ RectTransform:
   m_AnchoredPosition: {x: 6.6499023, y: 17.444824}
   m_SizeDelta: {x: -313.30005, y: -327.25122}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1248725957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248725955}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f7f6dc2718a445ab936602d609e2eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHighscoreName: {fileID: 0}
-  playerHighscoreText: {fileID: 0}
-  playerCurrentScoreText: {fileID: 0}
-  playerCurrentScoreOnHighscore: {fileID: 0}
-  playerNameText: {fileID: 0}
-  playerNameInput: {fileID: 0}
-  playerNameAfterInput: {fileID: 0}
 --- !u!1 &1255890695
 GameObject:
   m_ObjectHideFlags: 0
