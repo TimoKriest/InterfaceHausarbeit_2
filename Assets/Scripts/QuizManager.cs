@@ -94,6 +94,7 @@ public class QuizManager : MonoBehaviour
         else if (questionsAndAnswersList.Count >= 1)
         {
             currentQuestion = Random.Range(0, questionsAndAnswersList.Count);
+            //currentQuestion = 0;
             
             if (questionsAndAnswersList[currentQuestion].singleAnswer)
             {

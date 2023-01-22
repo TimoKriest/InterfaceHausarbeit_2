@@ -119,9 +119,9 @@ public class MultipleChoiceController : MonoBehaviour
             }
             CanvasGroup newTargetCanvasGrp = _quizManager.SetQuestion().GetComponent<CanvasGroup>();
             print("Canvas Grp Target: " + newTargetCanvasGrp);
-           _displayController.targetCanvasGroupToFade = newTargetCanvasGrp;
-           _displayController.FadeIn();
-           print("Canvas Grp Origin: " + _displayController._originCanvasGroupToFade);
+           //_displayController.targetCanvasGroupToFade = newTargetCanvasGrp;
+           //_displayController.FadeIn();
+           //print("Canvas Grp Origin: " + _displayController._originCanvasGroupToFade);
         }
     }
 }

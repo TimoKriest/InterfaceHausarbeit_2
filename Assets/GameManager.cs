@@ -21,15 +21,11 @@ public class GameManager : MonoBehaviour
         // menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade = targetMenu.GetComponent<CanvasGroup>();
         // print(menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade);
         // print("StartGame END");
-
         
         _quizManager.StartGame();
-        print("StartGame START");
         GameObject targetMenu = _quizManager.SetQuestion();
         targetMenu.SetActive(true);
-        menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade = targetMenu.GetComponent<CanvasGroup>();
-        print(menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade);
-        print("StartGame END");
+        //menu.GetComponentsInChildren<DisplayController>()[1].targetCanvasGroupToFade = targetMenu.GetComponent<CanvasGroup>();
     }
     
     public void QuitGame()

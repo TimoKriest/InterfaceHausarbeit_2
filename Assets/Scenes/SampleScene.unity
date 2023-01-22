@@ -143,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9008493
 RectTransform:
   m_ObjectHideFlags: 0
@@ -222,31 +222,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9008496}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9008498}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1940221275}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &9008496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,14 +268,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9008492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 1940221277}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &11740481
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,13 +293,14 @@ GameObject:
   - component: {fileID: 11740482}
   - component: {fileID: 11740483}
   - component: {fileID: 11740484}
+  - component: {fileID: 11740485}
   m_Layer: 0
   m_Name: SliderMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &11740482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -332,7 +315,7 @@ RectTransform:
   m_Children:
   - {fileID: 438337807}
   m_Father: {fileID: 2000871493}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -369,6 +352,27 @@ MonoBehaviour:
   btnC: {fileID: 0}
   btnD: {fileID: 0}
   slider: {fileID: 1973138136}
+--- !u!114 &11740485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11740481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &15518202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,9 +1146,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 0}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!114 &115949359 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8492992177055629381, guid: d48d939b24d6c1b4fb82c3e662d75b41, type: 3}
@@ -1502,7 +1512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPoints: 0
   scoreText: {fileID: 132187998}
-  highscoreText: {fileID: 1179095827}
+  highscoreText: {fileID: 5004961982161870264}
   playerText: {fileID: 1840681868}
   questions: []
   answers: []
@@ -1789,7 +1799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &294529840
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2078,144 +2088,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313283395}
   m_CullTransparentMesh: 1
---- !u!1001 &337646811
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1248725956}
-    m_Modifications:
-    - target: {fileID: 3421154183241769866, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421154183241769866, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421154183241769866, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421154183241769866, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421154183241769866, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421154183241769866, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 84.200195
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421154183241769866, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 5.7798004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692517, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_Name
-      value: highscore_header
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692517, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 111
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004961982420692523, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 14b0f08091680c740811ea6e0c453c1c, type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
---- !u!224 &337646812 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5004961982420692522, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-  m_PrefabInstance: {fileID: 337646811}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &340213748 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4108844826591725263, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
@@ -4189,6 +4061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 638666322}
   - component: {fileID: 638666323}
+  - component: {fileID: 638666324}
   m_Layer: 0
   m_Name: StartMenu
   m_TagString: Untagged
@@ -4225,10 +4098,31 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 638666321}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &638666324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638666321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1CanvasGroupToFade: {fileID: 1659854008}
+  target2CanvasGroupToFade: {fileID: 1830159701}
+  target3CanvasGroupToFade: {fileID: 1940221277}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 1343156682}
+  menu2Btn: {fileID: 1605311330}
+  menu3Btn: {fileID: 3891951435366309285}
+  menu4Btn: {fileID: 0}
 --- !u!1 &646141100
 GameObject:
   m_ObjectHideFlags: 0
@@ -4869,7 +4763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &831297047
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4948,43 +4842,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 831297050}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 831297046}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &831297050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5195,9 +5053,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 0}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &839223450
 GameObject:
   m_ObjectHideFlags: 0
@@ -5217,7 +5081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &839223451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6121,9 +5985,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 0}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!4 &1011269045
 Transform:
   m_ObjectHideFlags: 0
@@ -7009,17 +6879,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168955034}
   m_CullTransparentMesh: 1
---- !u!114 &1179095827 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5004961982365288803, guid: 022f88384d106824a88a2ab0df93509b, type: 3}
-  m_PrefabInstance: {fileID: 337646811}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1192821205
 GameObject:
   m_ObjectHideFlags: 0
@@ -7398,7 +7257,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4512997754174284706}
-  - {fileID: 337646812}
+  - {fileID: 5004961982087248625}
   - {fileID: 476002151}
   - {fileID: 1086552536}
   m_Father: {fileID: 1947191936}
@@ -7423,7 +7282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPoints: 0
   scoreText: {fileID: 132187998}
-  highscoreText: {fileID: 1179095827}
+  highscoreText: {fileID: 5004961982161870264}
   playerText: {fileID: 1840681868}
   questions: []
   answers: []
@@ -7587,13 +7446,14 @@ GameObject:
   - component: {fileID: 1317398319}
   - component: {fileID: 1317398320}
   - component: {fileID: 1317398321}
+  - component: {fileID: 1317398322}
   m_Layer: 0
   m_Name: Highscore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1317398319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7608,7 +7468,7 @@ RectTransform:
   m_Children:
   - {fileID: 1947191936}
   m_Father: {fileID: 2000871493}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7623,9 +7483,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317398318}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1317398321
 MonoBehaviour:
@@ -7645,6 +7505,27 @@ MonoBehaviour:
   btnC: {fileID: 0}
   btnD: {fileID: 0}
   slider: {fileID: 0}
+--- !u!114 &1317398322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317398318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1CanvasGroupToFade: {fileID: 638666323}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 4512997754174284704}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1001 &1329785216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7658,7 +7539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4108844826488972030, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4108844826591725249, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -7778,7 +7659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4108844827405721383, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4108844827405721383, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7995,31 +7876,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1343156683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 166291461}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1343156686}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1343156683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8077,14 +7934,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343156678}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 0}
-  fadeSpeed: 2
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &1350267088
 GameObject:
   m_ObjectHideFlags: 0
@@ -8195,7 +8058,7 @@ RectTransform:
   m_Children:
   - {fileID: 85806535}
   m_Father: {fileID: 2000871493}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9501,7 +9364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1594489767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9753,18 +9616,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1605311334}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1605311331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9822,14 +9673,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605311327}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 1830159701}
-  fadeSpeed: 2
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &1635622207
 GameObject:
   m_ObjectHideFlags: 0
@@ -10004,7 +9861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1659854007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10019,7 +9876,7 @@ RectTransform:
   m_Children:
   - {fileID: 19888324}
   m_Father: {fileID: 2000871493}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10034,9 +9891,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659854006}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1659854009
 MonoBehaviour:
@@ -10656,13 +10513,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1830159700}
   - component: {fileID: 1830159701}
+  - component: {fileID: 1830159702}
   m_Layer: 0
   m_Name: Credits_Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1830159700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10692,10 +10550,31 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830159699}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1830159702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830159699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1CanvasGroupToFade: {fileID: 638666323}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 4512997753732108459}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &1840681866
 GameObject:
   m_ObjectHideFlags: 0
@@ -10850,7 +10729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1870247091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11401,13 +11280,14 @@ GameObject:
   - component: {fileID: 1940221277}
   - component: {fileID: 1940221278}
   - component: {fileID: 1940221279}
+  - component: {fileID: 1940221280}
   m_Layer: 0
   m_Name: SettingsMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1940221276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11437,9 +11317,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940221275}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1940221278
 MonoBehaviour:
@@ -11466,6 +11346,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resolutionDropdown: {fileID: 708511234}
+--- !u!114 &1940221280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940221275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target1CanvasGroupToFade: {fileID: 638666323}
+  target2CanvasGroupToFade: {fileID: 638666323}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 831297049}
+  menu2Btn: {fileID: 832287364}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &1947191935
 GameObject:
   m_ObjectHideFlags: 0
@@ -12053,10 +11954,10 @@ RectTransform:
   - {fileID: 1127645789}
   - {fileID: 638666322}
   - {fileID: 1830159700}
+  - {fileID: 11740482}
+  - {fileID: 1358006010}
   - {fileID: 1317398319}
   - {fileID: 1659854007}
-  - {fileID: 1358006010}
-  - {fileID: 11740482}
   - {fileID: 1940221276}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -13586,6 +13487,14 @@ RectTransform:
   m_AnchoredPosition: {x: -0.14990234, y: 0}
   m_SizeDelta: {x: -742, y: -642}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1899863889855604949
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099676691926310689}
+  m_CullTransparentMesh: 1
 --- !u!114 &2342407394190925763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13962,18 +13871,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2972871221644479405}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2972871221644479405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13981,14 +13878,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2655063733933430724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 1317398320}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!114 &2972871223006030183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14076,9 +13979,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 0}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!222 &3030725591521318038
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14345,6 +14254,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!224 &3421154183441004369
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099676691926310689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5004961982087248625}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 84.200195, y: 5.7798004}
+  m_SizeDelta: {x: 49, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &3541245397703225173 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3541245398536544446, guid: d48d939b24d6c1b4fb82c3e662d75b41, type: 3}
@@ -14453,18 +14382,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1533922833160739074}
         m_TargetAssemblyTypeName: AnswerScipt, Assembly-CSharp
         m_MethodName: checkAnswer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4549781664430004309}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14811,31 +14728,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3891951435366309282}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3891951435366309289}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1940221275}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3891951435366309286
 GameObject:
   m_ObjectHideFlags: 0
@@ -14897,14 +14790,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3891951435366309286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 1940221277}
-  fadeSpeed: 2
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!114 &3891951435366309290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15116,6 +15015,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4099676691926310689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3421154183441004369}
+  - component: {fileID: 1899863889855604949}
+  - component: {fileID: 4343074417509054470}
+  m_Layer: 5
+  m_Name: icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &4108844827354346521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15125,11 +15042,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4108844826488972030, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4108844826488972030, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4108844826591725249, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_Value
@@ -15237,15 +15154,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4108844827405721383, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4108844827405721383, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4108844827405721383, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.46
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
@@ -15411,6 +15328,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26fcaa555c9aa44286d37d8765d4f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4343074417509054470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099676691926310689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6582c425a84edc74bba2a8e72c57f1e0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &4512997753732108453
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15526,18 +15473,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 7454342032279300037}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4512997753732108462
 GameObject:
@@ -15738,31 +15673,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4512997754174284705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1317398318}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 638666321}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &4512997754174284705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15815,25 +15726,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00000023841858, y: 53.5}
   m_SizeDelta: {x: 866, y: 107}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4512997754174284707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4512997754174284709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43484a6f82171f14f8792d204efc36a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startColor: {r: 0, g: 0, b: 0, a: 0}
-  isCorrect: 0
-  selected: 0
-  quizManager: {fileID: 0}
-  answerTimer: 1
-  correctSound: {fileID: 0}
-  wrongSound: {fileID: 0}
 --- !u!1 &4512997754174284709
 GameObject:
   m_ObjectHideFlags: 0
@@ -15847,7 +15739,6 @@ GameObject:
   - component: {fileID: 4512997754174284705}
   - component: {fileID: 4512997754174284704}
   - component: {fileID: 7454342031714964687}
-  - component: {fileID: 4512997754174284707}
   m_Layer: 5
   m_Name: btn_backToMainMenu
   m_TagString: Untagged
@@ -16050,9 +15941,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 0}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &4549781664430004308
 GameObject:
   m_ObjectHideFlags: 0
@@ -16081,14 +15978,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4549781664430004308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 1317398320}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!224 &4785770730314321447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16214,18 +16117,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8996962872525446009}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &4835577144395042623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16297,6 +16188,219 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8535505355720536230}
+  m_CullTransparentMesh: 1
+--- !u!114 &5004961982087248624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004961982087248638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 14b0f08091680c740811ea6e0c453c1c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!224 &5004961982087248625
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004961982087248638}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5004961982161870265}
+  - {fileID: 3421154183441004369}
+  m_Father: {fileID: 1248725956}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -180}
+  m_SizeDelta: {x: -88, y: 111}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5004961982087248627
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004961982087248638}
+  m_CullTransparentMesh: 1
+--- !u!1 &5004961982087248638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5004961982087248625}
+  - component: {fileID: 5004961982087248627}
+  - component: {fileID: 5004961982087248624}
+  m_Layer: 5
+  m_Name: highscore_header
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &5004961982161870214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5004961982161870265}
+  - component: {fileID: 5004961982161870267}
+  - component: {fileID: 5004961982161870264}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &5004961982161870264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004961982161870214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Highscore
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 64.7
+  m_fontSizeBase: 64.7
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 4096
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 12.4973755}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!224 &5004961982161870265
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004961982161870214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5004961982087248625}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0033989, y: 0.000068665}
+  m_SizeDelta: {x: 1520, y: 111}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5004961982161870267
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5004961982161870214}
   m_CullTransparentMesh: 1
 --- !u!114 &5015920797628482825
 MonoBehaviour:
@@ -17806,14 +17910,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4512997753732108462}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 638666323}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &7463239687017814893
 GameObject:
   m_ObjectHideFlags: 0
@@ -18427,18 +18537,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8929890546268507654}
-        m_TargetAssemblyTypeName: DisplayController, Assembly-CSharp
-        m_MethodName: FadeIn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &8929890546268507654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18446,14 +18544,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8535505354903130733}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 1317398320}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!114 &8929890547622784206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18541,9 +18645,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 0}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!1 &8966241086005818934
 GameObject:
   m_ObjectHideFlags: 0
@@ -18595,14 +18705,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5657091833020592540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 1317398320}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!222 &8996962873848199603
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18642,9 +18758,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCanvasGroupToFade: {fileID: 0}
-  fadeSpeed: 1
-  _originCanvasGroupToFade: {fileID: 0}
+  target1CanvasGroupToFade: {fileID: 0}
+  target2CanvasGroupToFade: {fileID: 0}
+  target3CanvasGroupToFade: {fileID: 0}
+  target4CanvasGroupToFade: {fileID: 0}
+  fadeDuration: 2
+  menu1Btn: {fileID: 0}
+  menu2Btn: {fileID: 0}
+  menu3Btn: {fileID: 0}
+  menu4Btn: {fileID: 0}
 --- !u!222 &9034551417349887241
 CanvasRenderer:
   m_ObjectHideFlags: 0
