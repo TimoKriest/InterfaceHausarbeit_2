@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class AnswerScipt : MonoBehaviour
 {
+    [SerializeField] private PlayerSessionStorage _playerSessionStorage;
+    [SerializeField] private int questionScore;
     public Color startColor;
     public bool isCorrect;
     public bool selected;
@@ -17,6 +19,7 @@ public class AnswerScipt : MonoBehaviour
     void Start()
     {
         startColor = GetComponent<Image>().color;
+        _playerSessionStorage = FindObjectOfType<PlayerSessionStorage>();
     }
 
 // Wenn der Button gedrückt wird, wird die Methode checkAnswer aufgerufen.
@@ -27,7 +30,7 @@ public class AnswerScipt : MonoBehaviour
             GetComponent<Image>().color = Color.green;
             Debug.Log("Correct Answer");
             correctSound.Play();
-
+            _playerSessionStorage.UpdateScore(questionScore);
         }
         else if (!isCorrect)
         {
