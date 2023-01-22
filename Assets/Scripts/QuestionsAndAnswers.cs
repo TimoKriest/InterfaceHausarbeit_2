@@ -2,7 +2,7 @@
 
 public class QuestionsAndAnswers
 {
-    public string Questions;
+    public string Question;
     public string[] Answers;
     public int[] CorrectAnswer;
     public bool multipleAnswers;

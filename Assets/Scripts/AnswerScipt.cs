@@ -34,7 +34,6 @@ public class AnswerScipt : MonoBehaviour
             wrongSound.Play();
         }
         StartCoroutine(waitAndDeactivate());
-
  }
     private void resetColor(){
             GetComponent<Image>().color = startColor;

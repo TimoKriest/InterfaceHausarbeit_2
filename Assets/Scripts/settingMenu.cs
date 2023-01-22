@@ -35,10 +35,4 @@ public class settingMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

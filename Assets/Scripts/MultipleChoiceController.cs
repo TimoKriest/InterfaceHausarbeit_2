@@ -55,10 +55,14 @@ public class MultipleChoiceController : MonoBehaviour
     [SerializeField] private string[] answers;
     [SerializeField] private int[] correctAnswers;
     [SerializeField] private Button[] answerButtons;
+    [SerializeField] private QuizManager _quizManager;
     
-    [Header("Fragen")]
-    [SerializeField] private string questionTxt;
-    [SerializeField] private TextMeshProUGUI questTxtDisplay;
+    private int correct;
+    private int incorrect;
+    
+    //[Header("Fragen")]
+    //[SerializeField] private string questionTxt;
+    //[SerializeField] private TextMeshProUGUI questTxtDisplay;
     
     // Referenzen zu den UI-Buttons
     
@@ -66,7 +70,9 @@ public class MultipleChoiceController : MonoBehaviour
     // Initialisierung
     void Start()
     {
-        questTxtDisplay.text = questionTxt;
+        correct = 0;
+        incorrect = 0;
+        //questTxtDisplay.text = questionTxt;
         // Frage und Antwortmöglichkeiten auf Buttons setzen
         for (int i = 0; i < answers.Length; i++)
         {
@@ -92,10 +98,21 @@ public class MultipleChoiceController : MonoBehaviour
         if (isCorrect)
         {
             answerButtons[buttonIndex].GetComponent<Image>().color = Color.green;
+            correct++;
         }
         else
         {
             answerButtons[buttonIndex].GetComponent<Image>().color = Color.red;
+            incorrect++;
+        }
+        
+        print("Correct: " + correct);
+        print("Incorrect: " + incorrect);
+        print("Answers: " +correctAnswers.Length);
+
+        if (correct == correctAnswers.Length || incorrect >= 3)
+        {
+            _quizManager.SetQuestion();
         }
     }
 }

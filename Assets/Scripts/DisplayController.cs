@@ -24,6 +24,11 @@ public class DisplayController : MonoBehaviour
         _originCanvasGroupToFade = GetComponentInParent<CanvasGroup>();
     }
 
+    public void SetTargetCanvasGrp()
+    {
+        
+    }
+
     public void FadeIn()
     {
         
@@ -81,4 +86,5 @@ public class DisplayController : MonoBehaviour
         }
         _fadingOut = false;
     }
+    
 }
