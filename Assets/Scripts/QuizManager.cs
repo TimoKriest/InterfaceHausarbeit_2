@@ -48,6 +48,7 @@ public class QuizManager : MonoBehaviour
     {
         questionsAndAnswersList.RemoveAt(currentQuestion);
         SetQuestion();
+        
     }
 
     // Lädt die aktuelle Scene neu.

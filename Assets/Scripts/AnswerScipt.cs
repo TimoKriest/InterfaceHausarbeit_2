@@ -27,16 +27,16 @@ public class AnswerScipt : MonoBehaviour
             GetComponent<Image>().color = Color.green;
             Debug.Log("Correct Answer");
             correctSound.Play();
-            quizManager.correctAnswer();
+
         }
         else if (!isCorrect)
         {
             GetComponent<Image>().color = Color.red;
             Debug.Log("Wrong Answer");
             wrongSound.Play();
-            quizManager.wrongAnswer();
+
         }
-        //StartCoroutine(waitAndDeactivate());
+        StartCoroutine(waitAndDeactivate());
  }
 
 // Startet den Timer, der die Farbe des Buttons wieder zurücksetzt. Ruft außerdem die Methode correctAnswer oder wrongAnswer aus dem QuizManager auf.

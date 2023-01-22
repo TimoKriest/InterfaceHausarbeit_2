@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _quizManager = FindObjectOfType<QuizManager>();
+        StartGame();
     }
 
     public void StartGame()
