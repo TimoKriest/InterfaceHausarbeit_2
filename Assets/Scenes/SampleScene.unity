@@ -299,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 1940221277}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!1 &11740481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,6 +1099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 95031935}
+  - component: {fileID: 95031936}
   m_Layer: 5
   m_Name: InterfaceInlay_multibleChoice
   m_TagString: Untagged
@@ -1128,6 +1130,21 @@ RectTransform:
   m_AnchoredPosition: {x: 6.1499023, y: 47.825684}
   m_SizeDelta: {x: -312.30005, y: -327.25128}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &95031936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95031934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692e6b54ff678d34fa41d3be5fc3baa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCanvasGroupToFade: {fileID: 0}
+  fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!114 &115949359 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8492992177055629381, guid: d48d939b24d6c1b4fb82c3e662d75b41, type: 3}
@@ -2771,6 +2788,7 @@ MonoBehaviour:
   correctAnswers: 
   answerButtons: []
   _quizManager: {fileID: 0}
+  _displayController: {fileID: 0}
 --- !u!1 &420134569
 GameObject:
   m_ObjectHideFlags: 0
@@ -5179,6 +5197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 0}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!1 &839223450
 GameObject:
   m_ObjectHideFlags: 0
@@ -6104,6 +6123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 0}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!4 &1011269045
 Transform:
   m_ObjectHideFlags: 0
@@ -8064,6 +8084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 0}
   fadeSpeed: 2
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!1 &1350267088
 GameObject:
   m_ObjectHideFlags: 0
@@ -8230,11 +8251,12 @@ MonoBehaviour:
   - Falsch
   correctAnswers: 0000000001000000
   answerButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4835577144395042623}
+  - {fileID: 3656217660283234039}
+  - {fileID: 8929890547622784206}
+  - {fileID: 2972871223006030183}
   _quizManager: {fileID: 410698951}
+  _displayController: {fileID: 95031936}
 --- !u!1 &1380089596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4108844826591725263, guid: 1e35f948e43c6de48a65e0356d81e271, type: 3}
@@ -9807,6 +9829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 1830159701}
   fadeSpeed: 2
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!1 &1635622207
 GameObject:
   m_ObjectHideFlags: 0
@@ -13965,6 +13988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 1317398320}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!114 &2972871223006030183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14054,6 +14078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 0}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!222 &3030725591521318038
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14879,6 +14904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 1940221277}
   fadeSpeed: 2
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!114 &3891951435366309290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16026,6 +16052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 0}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!1 &4549781664430004308
 GameObject:
   m_ObjectHideFlags: 0
@@ -16061,6 +16088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 1317398320}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!224 &4785770730314321447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17785,6 +17813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 638666323}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!1 &7463239687017814893
 GameObject:
   m_ObjectHideFlags: 0
@@ -18424,6 +18453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 1317398320}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!114 &8929890547622784206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18513,6 +18543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 0}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!1 &8966241086005818934
 GameObject:
   m_ObjectHideFlags: 0
@@ -18571,6 +18602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 1317398320}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!222 &8996962873848199603
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18612,6 +18644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvasGroupToFade: {fileID: 0}
   fadeSpeed: 1
+  _originCanvasGroupToFade: {fileID: 0}
 --- !u!222 &9034551417349887241
 CanvasRenderer:
   m_ObjectHideFlags: 0

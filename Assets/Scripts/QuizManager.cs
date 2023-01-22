@@ -82,6 +82,7 @@ public class QuizManager : MonoBehaviour
             }
         }
     }
+    
 
     // Setzt die Fragen und ruft die SetAnswer() Methode auf. Sollten keine Fragen mehr übrig sein, wird die Gameover methode gerufen.
     public GameObject SetQuestion()

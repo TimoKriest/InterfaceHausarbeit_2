@@ -56,6 +56,7 @@ public class MultipleChoiceController : MonoBehaviour
     [SerializeField] private int[] correctAnswers;
     [SerializeField] private Button[] answerButtons;
     [SerializeField] private QuizManager _quizManager;
+    [SerializeField] private DisplayController _displayController;
     
     private int correct;
     private int incorrect;
@@ -112,7 +113,15 @@ public class MultipleChoiceController : MonoBehaviour
 
         if (correct == correctAnswers.Length || incorrect >= 3)
         {
-            _quizManager.SetQuestion();
+            foreach (var btn in answerButtons)
+            {
+                btn.GetComponent<Image>().color = Color.white;
+            }
+            CanvasGroup newTargetCanvasGrp = _quizManager.SetQuestion().GetComponent<CanvasGroup>();
+            print("Canvas Grp Target: " + newTargetCanvasGrp);
+           _displayController.targetCanvasGroupToFade = newTargetCanvasGrp;
+           _displayController.FadeIn();
+           print("Canvas Grp Origin: " + _displayController._originCanvasGroupToFade);
         }
     }
 }

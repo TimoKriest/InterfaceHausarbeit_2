@@ -5,9 +5,9 @@ using UnityEngine;
 public class DisplayController : MonoBehaviour
 {
     [SerializeField] public CanvasGroup targetCanvasGroupToFade;
-    [SerializeField] public float fadeSpeed = 1.0f;
+    [SerializeField] private float fadeSpeed = 2.0f;
     
-    private CanvasGroup _originCanvasGroupToFade;
+    public CanvasGroup _originCanvasGroupToFade;
     private bool _startFaded = true;
     private bool _fadingIn;
     private bool _fadingOut;
@@ -15,13 +15,6 @@ public class DisplayController : MonoBehaviour
     // Holt sich den CanvasGroup, der angezeigt werden soll und blendet diesen ein.
     void Start()
     {
-        // if (_startFaded && targetCanvasGroupToFade)
-        // {
-        //     targetCanvasGroupToFade.alpha = 0;
-        //     targetCanvasGroupToFade.interactable = false;
-        //     targetCanvasGroupToFade.blocksRaycasts = false;
-        // }
-
         _originCanvasGroupToFade = GetComponentInParent<CanvasGroup>();
     }
 
@@ -70,7 +63,7 @@ public class DisplayController : MonoBehaviour
         {
             targetCanvasGroupToFade.alpha += (fadeSpeed * Time.deltaTime);
             
-            yield return null;
+            yield return FadeOutCoroutine();
         }
         targetCanvasGroupToFade.interactable = true;
         targetCanvasGroupToFade.blocksRaycasts = true;
