@@ -4,27 +4,29 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
 {
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject[] gameMenues;
-    [SerializeField] private MultipleChoiceController _multipleChoiceController;
-    
+    [SerializeField] private MenuDisplayManager _menuDisplayManager;
+
     public List<QuestionsAndAnswers> questionsAndAnswersList;
-    public GameObject[] options;
+    
     public int currentQuestion;
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI scoreText;
-
-    int localQuestions;
     public int score;
     public bool restart;
     
+    private int localQuestions;
+    private GameObject[] answerBtn;
     private void Start()
     {
         // Check ob StartMenu aktiv ist. Wenn nicht -> aktivieren
         if(!startMenu.activeSelf) startMenu.SetActive(true);
+
     }
     
     public void StartGame()
@@ -58,22 +60,25 @@ public class QuizManager : MonoBehaviour
     // Deaktiviert das QuizPanel und aktiviert das EndScenePanel.
     public void GameOver()
     {
+        // TODO: Anbindung an PlayerPrefs
+        print("GameOver");
         scoreText.text = "You got " + score + " out of " + localQuestions + " correct!";
     }
 
     // Setzt die Antworten falls man diese richtig Beantwortet.
-    void SetAnswer()
+    void SetAnswer(Button[] btn)
     {
-        for (int i = 0; i < options.Length; i++)
+        for (int i = 0; i < btn.Length; i++)
         {
-            // Alle Fragen werden beim Start auf falsch gesetzt.
-            options[i].GetComponent<AnswerScipt>().isCorrect = false;
-            options[i].GetComponentInChildren<TextMeshProUGUI>().text = questionsAndAnswersList[currentQuestion].Answers[i];
-    
+            btn[i].GetComponent<AnswerScipt>().isCorrect = false;
+            btn[i].GetComponentsInChildren<TextMeshProUGUI>()[1].text = questionsAndAnswersList[currentQuestion].Answers[i];
 
-            if (questionsAndAnswersList[currentQuestion].CorrectAnswer[i] == i + 1 )
+            for (int j = 0; j < questionsAndAnswersList[currentQuestion].CorrectAnswer.Length; j++)
             {
-                options[i].GetComponent<AnswerScipt>().isCorrect = true;
+               if (questionsAndAnswersList[currentQuestion].CorrectAnswer[j] == i)
+               { 
+                   btn[i].GetComponent<AnswerScipt>().isCorrect = true;
+               } 
             }
         }
     }
@@ -81,7 +86,7 @@ public class QuizManager : MonoBehaviour
     // Setzt die Fragen und ruft die SetAnswer() Methode auf. Sollten keine Fragen mehr übrig sein, wird die Gameover methode gerufen.
     public GameObject SetQuestion()
     {
-        if (questionsAndAnswersList.Count == 0)
+        if (questionsAndAnswersList.Count <= 0)
         {
             GameOver();
         }
@@ -93,10 +98,11 @@ public class QuizManager : MonoBehaviour
             {
                 GameObject singleChoice = gameMenues[0];
                 print("SingleAnswer");
-                singleChoice.GetComponent<MenuDisplayManager>().SetQuestionTxt("TestFrageSingle");
-                questionText.text = questionsAndAnswersList[currentQuestion].Questions;
-                SetAnswer();
-
+                MenuDisplayManager singleChoiceQuestion = singleChoice.GetComponent<MenuDisplayManager>();
+                singleChoiceQuestion.SetQuestionTxt(questionsAndAnswersList[currentQuestion].Question);
+                
+                SetAnswer(singleChoiceQuestion.GetAnswerButtons());
+               
                 return singleChoice;
             }
             
@@ -104,7 +110,11 @@ public class QuizManager : MonoBehaviour
             {
                 GameObject multiChoice = gameMenues[1];
                 print("MultiAnswer");
-                multiChoice.GetComponent<MenuDisplayManager>().SetQuestionTxt("TestFrageMulti");
+                MenuDisplayManager multibleChoiceChanges = multiChoice.GetComponent<MenuDisplayManager>();
+                multibleChoiceChanges.SetQuestionTxt(questionsAndAnswersList[currentQuestion].Question);
+                
+                SetAnswer(multibleChoiceChanges.GetAnswerButtons());
+                
                 return multiChoice;
             }
             
@@ -112,10 +122,14 @@ public class QuizManager : MonoBehaviour
             {
                 GameObject sliderChoice = gameMenues[2];
                 print("SliderAnswer");
-                sliderChoice.GetComponent<MenuDisplayManager>().SetQuestionTxt("TestFrageSlider");
+                MenuDisplayManager sliderChoiceQuestion = sliderChoice.GetComponent<MenuDisplayManager>();
+                sliderChoiceQuestion.SetQuestionTxt(questionsAndAnswersList[currentQuestion].Question);
+                
+                // TODO: Braucht eigene Methode, da Slider
+                //SetAnswer(sliderChoiceQuestion.GetAnswerButtons());
+                
                 return sliderChoice;
             }
-            
         }
 
         return null;

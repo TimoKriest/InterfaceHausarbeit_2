@@ -35,7 +35,6 @@ public class AnswerScipt : MonoBehaviour
             wrongSound.Play();
         }
         StartCoroutine(waitAndDeactivate());
-
  }
 
 // Startet den Timer, der die Farbe des Buttons wieder zurücksetzt. Ruft außerdem die Methode correctAnswer oder wrongAnswer aus dem QuizManager auf.

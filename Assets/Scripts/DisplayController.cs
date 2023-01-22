@@ -25,7 +25,11 @@ public class DisplayController : MonoBehaviour
         _originCanvasGroupToFade = GetComponentInParent<CanvasGroup>();
     }
 
-    // FadeIn sorgt dafür, dass der CanvasGroup, der angezeigt werden soll eingeblendet wird.
+    public void SetTargetCanvasGrp()
+    {
+        
+    }
+
     public void FadeIn()
     {
         
@@ -85,4 +89,5 @@ public class DisplayController : MonoBehaviour
         }
         _fadingOut = false;
     }
+    
 }

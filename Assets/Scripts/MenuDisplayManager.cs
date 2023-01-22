@@ -18,4 +18,10 @@ public class MenuDisplayManager : MonoBehaviour
     {
         questionTxt.text = text;
     }
+
+    public Button[] GetAnswerButtons()
+    {
+        Button[] buttons = {btnA, btnB, btnC, btnD};
+        return buttons;
+    }
 }
