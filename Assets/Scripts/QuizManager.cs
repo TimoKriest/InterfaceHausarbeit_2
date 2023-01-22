@@ -69,12 +69,12 @@ public class QuizManager : MonoBehaviour
             // Alle Fragen werden beim Start auf falsch gesetzt.
             options[i].GetComponent<AnswerScipt>().isCorrect = false;
             options[i].GetComponentInChildren<TextMeshProUGUI>().text = questionsAndAnswersList[currentQuestion].Answers[i];
-/*
+    
+
             if (questionsAndAnswersList[currentQuestion].CorrectAnswer[i] == i + 1 )
             {
                 options[i].GetComponent<AnswerScipt>().isCorrect = true;
             }
-            */
         }
     }
 

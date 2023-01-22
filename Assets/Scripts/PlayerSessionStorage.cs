@@ -15,6 +15,10 @@ public class PlayerSessionStorage : MonoBehaviour
     public int currentQuestion;
     private int highscore;
     private string playerName;
+    public GameObject endGamePanel;
+    public GameObject playerNameInput;
+
+
     
 
     // Bei Start wird der Highscore und der Name des Spielers geladen.
@@ -25,6 +29,15 @@ public class PlayerSessionStorage : MonoBehaviour
         highscoreText.text = "Highscore: " + highscore;
         currentQuestion = 0;
         playerName = PlayerPrefs.GetString("playerName", "Player");
+        UpdateScore();
+    }
+
+    public void __onEditEnd()
+    {
+        playerName = playerNameInput.GetComponent<TMP_InputField>().text;
+        endGamePanel.SetActive(true);
+        playerNameInput.SetActive(false);
+        PlayerPrefs.SetString("playerName", playerName);
         UpdateScore();
     }
 
@@ -43,13 +56,17 @@ public class PlayerSessionStorage : MonoBehaviour
     public void UpdateScore()
     {
         scoreText.text = "Score: " + playerPoints;
+        playerText.text = playerName;
     }
 
     // EndGame überprüft ob der Spieler den Highscore erreicht hat und speichert diesen dann.
     public void EndGame()
     {
+
+        
         if (playerPoints > highscore)
         {
+            
             highscore = playerPoints;
             PlayerPrefs.SetInt("highscore", highscore);
             PlayerPrefs.SetString("playerName", playerName);
