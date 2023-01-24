@@ -1,11 +1,7 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject menu;
-    
     private QuizManager _quizManager;
 
     private void Start()
@@ -18,14 +14,13 @@ public class GameManager : MonoBehaviour
     {
         _quizManager.StartGame();
         _quizManager.SetQuestion();
-        //targetMenu.SetActive(true);
     }
 
     public void RestartGame()
     {
         StartGame();
     }
-    
+
     public void QuitGame()
     {
         Application.Quit();

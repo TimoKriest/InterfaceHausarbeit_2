@@ -3,7 +3,6 @@ using UnityEngine.EventSystems;
 
 public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    
     private RectTransform btnRect;
 
     // Holt sich die RectTransform des Buttons.
@@ -15,14 +14,14 @@ public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerEx
     // Vergrößert den Button, wenn der Mauszeiger darüber ist.
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Vector3 newSize = new Vector3(1.05f, 1.05f, 1.05f);
+        var newSize = new Vector3(1.05f, 1.05f, 1.05f);
         btnRect.localScale = Vector3.Lerp(btnRect.localScale, newSize, .5f);
     }
 
     // Verkleinert den Button, wenn der Mauszeiger nicht mehr darüber ist.
     public void OnPointerExit(PointerEventData eventData)
     {
-        Vector3 newSize = new Vector3(1f, 1f, 1f);
+        var newSize = new Vector3(1f, 1f, 1f);
         btnRect.localScale = Vector3.Lerp(btnRect.localScale, newSize, .5f);
     }
 }

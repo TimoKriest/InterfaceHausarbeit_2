@@ -4,13 +4,14 @@ TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
   fontSize: 16
-  forceTextureCase: -2
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
   - Ubuntu
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 14e2deb438840b4488298bc90637c8da, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

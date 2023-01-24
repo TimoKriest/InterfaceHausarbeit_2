@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,55 +15,56 @@ public class sliderCheckAnswer : MonoBehaviour
     public float answerTimer = 1f;
     public Color startColor;
 
-void Start()
+    private void Start()
     {
         startColor = GetComponent<Image>().color;
-        slider.interactable= true;
-
+        slider.interactable = true;
     }
+
     // Deaktiviert den Slider sobald der Spieler die Antwort abgegeben hat.
     public void sliderDeactivate()
     {
-        slider.interactable= false;
+        slider.interactable = false;
         currentQuestion = quizManager.currentQuestion;
-        print( quizManager.questionsAndAnswersList[currentQuestion].CorrectAnswer[0] +"Correct Answerr");
+        print(quizManager.questionsAndAnswersList[currentQuestion].CorrectAnswer[0] + "Correct Answerr");
         print(slider.value + "Slider Value");
 
-        if (slider.value == quizManager.questionsAndAnswersList[currentQuestion].CorrectAnswer[0]){
+        if (slider.value == quizManager.questionsAndAnswersList[currentQuestion].CorrectAnswer[0])
+        {
             GetComponent<Image>().color = Color.green;
             correctSound.Play();
             isCorrect = true;
         }
-        else{
+        else
+        {
             GetComponent<Image>().color = Color.red;
             wrongSound.Play();
             isCorrect = false;
         }
-        if (isCorrect){
+
+        if (isCorrect)
             quizManager.correctAnswer();
-        }
-        else if(!isCorrect){
-            quizManager.wrongAnswer();
-        }
+        else if (!isCorrect) quizManager.wrongAnswer();
         StartCoroutine(waitAndDeactivate());
     }
-    
-    IEnumerator waitAndDeactivate(){
-        while(answerTimer > 0){
+
+    private IEnumerator waitAndDeactivate()
+    {
+        while (answerTimer > 0)
+        {
             answerTimer -= Time.deltaTime;
             yield return null;
         }
+
         resetColor();
-        
     }
 
-     private void resetColor(){
-            GetComponent<Image>().color = startColor;
-            answerTimer = 1f;
-            slider.interactable = true;
-            slider.value = 0;
-            //selected = false;
-        }
+    private void resetColor()
+    {
+        GetComponent<Image>().color = startColor;
+        answerTimer = 1f;
+        slider.interactable = true;
+        slider.value = 0;
+        //selected = false;
+    }
 }
-
- 
